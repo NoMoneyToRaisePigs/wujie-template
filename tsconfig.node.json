@@ -1,0 +1,21 @@
+{
+  "include": [
+    "vite.config.ts",
+    "vite.local.config.ts"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "strict": true,
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "module": "ESNext",
+    "target": "es2021",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

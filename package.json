@@ -1,0 +1,68 @@
+{
+  "name": "vite-initialize",
+  "version": "0.1.0",
+  "scripts": {
+    "local": "vite --mode qa --config vite.local.config.ts",
+    "local:dev": "cd local && vite --mode dev",
+    "local:qa": "cd local && vite --mode qa",
+    "dev": "vite --mode qa",
+    "build": "run-p type-check build-only",
+    "build:qa": "vite build --mode qa",
+    "preview:qa": "vite preview --mode qa",
+    "build:local:qa": "vite build --config vite.local.config.ts --mode qa",
+    "preview:local:qa": "vite preview --config vite.local.config.ts --mode qa",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint:scss": "stylelint **/*.vue **/*.scss",
+    "lint:scss:fix": "stylelint **/*.vue **/*.scss --fix",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@types/js-cookie": "^3.0.3",
+    "alova": "^2.5.4",
+    "element-plus": "^2.3.5",
+    "js-cookie": "^3.0.5",
+    "moment": "^2.29.4",
+    "pinia": "^2.0.36",
+    "vue": "^3.3.4",
+    "vue-i18n": "9",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@tsconfig/node16": "^1.0.4",
+    "@types/node": "^18.16.8",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "@vueuse/core": "^10.1.2",
+    "eslint": "^8.39.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-vue": "^9.11.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "npm-run-all": "^4.1.5",
+    "postcss-html": "^1.5.0",
+    "sass": "^1.62.1",
+    "stylelint": "^15.5.0",
+    "stylelint-config-recommended-scss": "^11.0.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "typescript": "^5.0.4",
+    "unplugin-auto-import": "^0.16.2",
+    "unplugin-vue-components": "^0.24.1",
+    "vite": "^4.3.8",
+    "vue-eslint-parser": "^9.1.0",
+    "vue-tsc": "^1.6.5"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint"
+    ],
+    "*.{css,scss,vue}": [
+      "stylelint"
+    ]
+  }
+}
