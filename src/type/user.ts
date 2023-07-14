@@ -1,14 +1,14 @@
 export interface IUserInfoRaw {
-  adminId: string
   accountNonExpired: boolean
   accountNonLocked: boolean
-  authRequestIp: string
+  adminId: string
   appCode: string
+  authRequestIp: string
+  authorities: Authority[]
+  csrfHeader: string
   email: string
   id: number
-  authorities: Authority[]
   tags: Record<string, string[]>
-  csrfHeader: string
 }
 
 interface Authority {
@@ -18,9 +18,9 @@ interface Authority {
 export interface IUserInfo {
   adminId: string
   appCode: string
+  csrfHeader: string
   email: string
   id: number
   permissionCodes: Authority[]
   tagMap: Record<string, string[]>
-  csrfHeader: string
 }

@@ -35,12 +35,12 @@
 import { Warning } from '@element-plus/icons-vue'
 
 export interface Props {
-  title?: string
-  content?: string
-  confirmText?: string
   cancelText?: string
+  confirmText?: string
+  content?: string
   showCancelButton?: boolean
   showConfirmButton?: boolean
+  title?: string
   width?: string
 }
 
@@ -85,18 +85,18 @@ function onCancel() {
   text-align: center;
 
   .title {
-    font-weight: 500;
+    margin-top: 10px;
     font-size: 16px;
+    font-weight: 500;
     line-height: 28px;
     color: #1E2329;
     word-break: break-word;
-    margin-top: 10px;
   }
 
   .content {
+    color: #76808F;
     word-break: break-word;
     white-space: pre-wrap;
-    color: #76808F;
   }
 
   .el-icon {

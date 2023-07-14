@@ -27,9 +27,9 @@ type UPDATE_MODEL_VALUE_TYPE = 'update:modelValue' | 'update:model-value'
 const UPDATE_MODEL_VALUE = 'update:modelValue'
 
 export interface Props {
-  modelValue: number | string | Date | [number | string | Date, number | string | Date]
   disableBefore: boolean
   disabled: boolean
+  modelValue: number | string | Date | [number | string | Date, number | string | Date]
 }
 
 const innerValue = ref(props.modelValue)

@@ -7,14 +7,14 @@
 
 <script setup lang="ts">
 export interface Props {
-  msg: string
-  id: number
   associated: Asso[]
+  id: number
+  msg: string
 }
 
 export interface Asso {
-  uid: number
   label: string
+  uid: number
 }
 
 defineProps<Props>()

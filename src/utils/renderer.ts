@@ -24,7 +24,7 @@ export function renderComponent<T>(component : Component | string, props?: PropT
   const destroy = () => {
     if (el) render(null, el)
     el = null
-    vNode = null
+    vnode = null
   }
 
   return {

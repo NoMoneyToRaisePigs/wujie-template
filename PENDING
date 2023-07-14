@@ -1,36 +1,30 @@
 Improve eslint
 Improve stylelint
-Introduce tailwind css
+Introduce tailwind css and element-plus theme with css vars
 Introduce boilerplate
-Introduce eslint Profile
-Element-plus theme
-Alove interceptor middleware
-Add 404, and 403 page
-Favicon
-Todo plugin
-Docker, Nginx config
-Unplugin i18n
+Add Alove interceptor middleware
+Add 404, and 403 page ? is this really needed ?
+Introduce Todo plugin
 Check keyboard enter event
-Check dialog centering 
-Add dialog programmatically
-Commit lint
-Middleware design javascript
-Make the whole project as a tempalte vue-create ???
-Make the main ui beautiful
-Add the developer tool 
+Introduce CommitLint (together with cz)
+Make this project a template when this is ready
+Resolve the vue developer tool not showing for multiple domain (in main app)
 Clear local/node_modules
-Try actual build
-Investigate devtool especially no pinia
-.editorconfig (include the max number perline)
-CSS Theme, import by vite
-
-Auto improt all lang, like require context
-element-plus icon auto import
-create generic icon component (to handle dynamic icon)
-!!!handle 401 
-add 404, 403 PAGE
-too many component's name are index.
-find out other good extensions
-progress bar
-test change routing with different params 
-handle the micro applicate history routing append to parent
+Intrduce local build/preview to mimic production env (got a blocker of this because of the cookie config setting)
+setup max line in .vscode, eslint and edtiorconfig, so that they don't conflict
+Improve Auto improt config (also clean up not used ones)
+Introduce element-plus icon auto import (let me think about it, probably not needed, we need our own dynamic icon component)
+handle 401 in alova response interceptor
+too many component's name are index (there's a plugin to solve this I remember).
+introduce Nprogress bar in local project
+introduce high level loading for wujie instance
+publish host-to-root as post css plugin
+extract utils and add unit testing for them 
+introduce lightening css
+improve recess and sort-keys config for eslint and stylelint
+introduce vue-peek extension (volar has evolved, this may not needed)
+introduce mock and roaming mode in vite.
+introdue vite visualizer
+introduce vite dts plugin (do we actually need it) ?
+do we need istio health check ? doesn it from the kubelet or istio ?
+setup rules for git repo

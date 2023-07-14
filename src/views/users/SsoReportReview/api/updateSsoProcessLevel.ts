@@ -7,13 +7,11 @@ import {
 
 
 export interface Payload {
-  id?: number
   action: typeof SSO_REVIEW_ACTION_START_REVIEW | typeof SSO_REVIEW_ACTION_ARCHIVE
+  id?: number
   operator: string
 }
 
 export const UPDATE_SSO_PROCESS_LEVEL_URL = '/inspector/sso/report/action'
 
-export function updateSsoProcessLevel(payload: Payload) {
-  return alova.Post(UPDATE_SSO_PROCESS_LEVEL_URL, payload)
-}
+export const updateSsoProcessLevel = (payload: Payload) => alova.Post(UPDATE_SSO_PROCESS_LEVEL_URL, payload)

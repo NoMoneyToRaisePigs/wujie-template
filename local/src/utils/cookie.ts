@@ -28,7 +28,7 @@ function setToken(token: string) {
   setCookie(TokenKey, token)
 }
 
-function getToken(){
+function getToken() {
   return getCookie(TokenKey)
 }
 

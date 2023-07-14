@@ -16,6 +16,4 @@ export interface Payload extends Pick<ISsoBusinessDataRaw,
 
 export const UPDATE_SSO_REVIEW_RESULT_URL = '/inspector/sso/report/edit'
 
-export function updateSsoReviewResult(payload: Payload) {
-  return alova.Post(UPDATE_SSO_REVIEW_RESULT_URL, payload)
-}
+export const updateSsoReviewResult = (payload: Payload) => alova.Post(UPDATE_SSO_REVIEW_RESULT_URL, payload)

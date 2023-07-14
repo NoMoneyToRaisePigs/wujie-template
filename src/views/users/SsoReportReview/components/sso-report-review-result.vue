@@ -139,7 +139,8 @@ async function handleExpiryEdit() {
 
   await nextTick()
 
-  datePickerRef.value?.$el.querySelector('input').focus()
+  // TODO: focus input when this is opened
+  // datePickerRef.value?.$el.querySelector('input').focus()
 }
 
 function hideDatePicker() {

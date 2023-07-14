@@ -12,7 +12,7 @@
           </el-breadcrumb>
         </div>
         <section class="app-main">
-          <RouterView />
+          <RouterView :key="activeMenu?.fullPath ?? activeMenu?.path" />
         </section>
       </div>
     </div>
@@ -20,12 +20,14 @@
 </template>
 
 <script setup lang="ts">
-import sideBar from './components/sideBar.vue'
-import headerBar from './components/headerBar.vue'
-import tagsView from './components/tagView.vue'
 import { ArrowRight } from '@element-plus/icons-vue'
 
 import useNavStore from '~/stores/navigation'
+
+import sideBar from './components/sideBar.vue'
+import headerBar from './components/headerBar.vue'
+import tagsView from './components/tagView.vue'
+
 
 const { activeMenu } = useNavStore()
 
@@ -33,15 +35,15 @@ const { activeMenu } = useNavStore()
 
 <style lang="scss" scoped>
 .layout-container {
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: row;
+  width: 100%;
+  height: 100vh;
 
   .main-container {
     flex: 1;
-    height: 100%;
     width: calc(100% - 200px);
+    height: 100%;
     background-color: #f5f5f5;
   }
 
@@ -52,11 +54,11 @@ const { activeMenu } = useNavStore()
 
   .tags-view-container {
     width: 100%;
+    height: 48px;
     background: #F5F5F5;
     border-bottom: none;
     border-left: 1px solid #EAECEF;
     border-left-width: 1px;
-    height: 48px;
   }
 
   .breadcrumb {
@@ -67,22 +69,22 @@ const { activeMenu } = useNavStore()
 
     :deep {
       .el-breadcrumb {
-        padding: 16px;
         display: inline-block;
+        padding: 16px;
         font-size: 14px;
       }
     }
   }
 
   .app-main {
+    position: relative;
+    width: 100%;
     min-height: calc(100vh - 124px);
     padding: 18px 18px 100px;
-    width: 100%;
-    position: relative;
+    overflow: hidden scroll;
     background: white;
     border-left: 1px solid #EAECEF;
     border-left-width: var(--sidebar-border-width);
-    overflow: hidden scroll;
   }
 }
 </style>

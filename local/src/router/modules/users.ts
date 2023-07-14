@@ -7,7 +7,7 @@ export default {
   meta: {
     title: 'users',
     icon: 'user',
-    roles: ['users'],
+    roles: [],
     hidden: true,
   },
   children: userChildRoutes.map(x => ({

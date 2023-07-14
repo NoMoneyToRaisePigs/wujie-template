@@ -1,8 +1,4 @@
-import router from '~/router/index'
-import { useRoute } from 'vue-router'
-
-
-export function useSideBarMenus(){
+export function useSideBarMenus() {
   const { options } = useRouter()
   const menus = []
 
@@ -12,6 +8,7 @@ export function useSideBarMenus(){
       name: r.name ?? r.meta?.title ?? r.path,
       path: r.path,
     }
+
     menus.push(menu)
   })
 

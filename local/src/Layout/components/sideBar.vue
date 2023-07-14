@@ -35,11 +35,11 @@ function handleNav(item: IMenu) {
   background-color: #fff;
 
   .logo-wrapper {
-    padding: 0 20px;
     display: flex;
-    height: 64px;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
+    height: 64px;
+    padding: 0 20px;
 
     img {
       margin-right: 8px;
@@ -49,8 +49,8 @@ function handleNav(item: IMenu) {
   .menu-item-wrapper {
     .menu-item {
       height: 50px;
-      line-height: 50px;
       padding: 0 8px;
+      line-height: 50px;
 
       &:hover, &.active {
         background-color: #fafafa;

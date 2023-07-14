@@ -107,7 +107,7 @@ export default defineConfig(({ mode }) => {
       // origin: 'http://localhost:5174',
       proxy: {
         '/admin-api/': {
-          target: env.VITE_APP_API_URL,
+          target: env.VITE_APP_API_BASE_URL,
           changeOrigin: true,
           // selfHandleResponse: true,
           configure: (proxy, options) => {

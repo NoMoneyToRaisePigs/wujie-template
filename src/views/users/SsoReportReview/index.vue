@@ -9,12 +9,9 @@
         {{ $t('userReport.startReview') }}
       </el-button>
     </div>
-    <h3>
-      {{ $t('uuu') }}
-    </h3>
-    <el-button type="primary" @click="openMessage">
+    <!-- <el-button type="primary" @click="openMessage">
       Message
-    </el-button>
+    </el-button> -->
     <el-divider />
     <sso-report-submission-detail
       v-if="!ssoBusinessDataLoading"

@@ -1,12 +1,16 @@
-import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
+
 import Layout from '~/Layout/index.vue'
 import Landing from '~/views/Landing/index.vue'
 import Page404 from '@/views/error-page/404.vue'
-import usersRoutes from './modules/users'
 import { getToken } from '@/utils/token'
 import { useUserStore } from '@/stores/user'
 import type { IMenu } from '~/types/menu'
+
+import usersRoutes from './modules/users'
+import vipPortalRoutes from './modules/vip-portal'
+
+import type { RouteRecordRaw } from 'vue-router'
 
 const routes : RouteRecordRaw[]= [
   {
@@ -45,15 +49,16 @@ const routes : RouteRecordRaw[]= [
     },
   },
   usersRoutes,
+  vipPortalRoutes,
 ]
 
-//TODO: change the below to hash, so that it will be the same as Admin-UI
+// TODO: change the below to hash, so that it will be the same as Admin-UI
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
 
-router.beforeEach(async(to, from) => {
+router.beforeEach(async(to, _) => {
 
   console.log('to', to)
   // TODO: Terrence - check whitelist
@@ -65,7 +70,7 @@ router.beforeEach(async(to, from) => {
   if(hasToken) {
     const userStore = useUserStore()
 
-    if(!userStore.ready){
+    if(!userStore.ready) {
       await userStore.getInfo()
     }
 
@@ -90,20 +95,21 @@ router.beforeEach(async(to, from) => {
   // TODO: Terrence - check permission
 })
 
-function getMenus() : {menus: IMenu[], menuMap: Record<string, IMenu>} {
+function getMenus() : { menuMap: Record<string, IMenu>; menus: IMenu[] } {
   const menus: IMenu[] = []
 
   routes.forEach((r) => {
 
     if(r.children) {
-      r.children.forEach((c) => {
+      r.children.forEach((c: RouteRecordRaw) => {
         if(c.meta?.hidden) return
 
         const childMenu: IMenu = {
-          name: c.name ?? c.meta?.title ?? c.path,
+          name: c.name?.toString() ?? c.meta?.title ?? c.path,
           path: c.path ? `${r.path}/${c.path}` : r.path,
           hidden: false,
         }
+
         menus.push(childMenu)
       })
     }

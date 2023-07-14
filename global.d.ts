@@ -1,0 +1,1 @@
+// TODO: move global windown declaration to here

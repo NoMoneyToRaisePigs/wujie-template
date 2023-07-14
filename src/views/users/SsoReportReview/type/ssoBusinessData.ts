@@ -47,6 +47,7 @@ export interface ISsoBusinessDataRaw {
   caseId: string
   category: typeof USER_REPORT_TYPE_SSO | typeof USER_REPORT_TYPE_SAR
   createBy: string
+  createType: SSOCreateType
   dbCreateTime: number
   dbModifyTime: number
   id: number
@@ -61,72 +62,71 @@ export interface ISsoBusinessDataRaw {
   submitAgent: string
   submitTime: number
   summary: string
+  taskPoolActivity: any
   type: string
   updateBy: string
   userId: number
-  taskPoolActivity: any
-  createType: SSOCreateType
 }
 
 export interface ISsoBusinessData {
-  submissionDetail: SubmissionDetail
   reviewResult: ReviewResult
+  submissionDetail: SubmissionDetail
 }
 
 
 export interface SubmissionDetail {
-  id?: number
   agent: string
-  reportType: string
-  submissionTime: number
-  victimUid: string
-  victimCid: string
-  suspectUid?: NullableStr
-  summary: string
-  status?: SSOReviewBusinessType
   attachments?: IS3Attachment[] | null
-  uid?: string
   blacklistAddress?: NullableStr
+  id?: number
   isBatchCreate?: boolean
+  reportType: string
+  status?: SSOReviewBusinessType
+  submissionTime: number
+  summary: string
+  suspectUid?: NullableStr
+  uid?: string
+  victimCid: string
+  victimUid: string
 }
 
 export interface ReviewResult {
-  id: number
-  cid: NullableStr
-  status: SSOReviewStatus
   businessStatus?: SSOReviewBusinessType
-  priority: string
+  cid: NullableStr
   expireDate: number
+  id: number
+  note: string | null
+  priority: string
+  status: SSOReviewStatus
   suspectUid: NullableStr
   usdValue: number
-  note: string | null
 }
 
 export interface ISubmissionDetailView {
-  id?: number
   agent: string
-  reportType: string
-  submissionTime: string
-  victimUid: string
-  victimCid: string
-  suspectUid?: NullableStr
-  summary: string
-  status?: SSOReviewBusinessType
   attachments?: IS3Attachment[] | null
-  uid?: string
   blacklistAddress?: NullableStr
+  id?: number
   isBatchCreate?: boolean
+  reportType: string
+  status?: SSOReviewBusinessType
+  submissionTime: string
+  summary: string
+  suspectUid?: NullableStr
+  uid?: string
+  victimCid: string
+  victimUid: string
 }
 
 export interface IReviewResultView {
-  id: number
-  cid: NullableStr
-  status: SSOReviewStatus
+  _raw: ReviewResult
   businessStatus?: SSOReviewBusinessType
-  priority: string
+  cid: NullableStr
   expireDate: string
+  id: number
+  note: string | null
+  priority: string
+  status: SSOReviewStatus
   suspectUid: NullableStr
   usdValue: string
-  note: string | null
-  _raw: ReviewResult
 }

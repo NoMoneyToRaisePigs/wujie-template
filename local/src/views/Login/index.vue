@@ -20,50 +20,50 @@ const { oktaUrl } = useOktaUrl()
 
 <style lang="scss" scoped>
 .login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   background-image: url('~/assets/loginBg.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   .login-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin-bottom: 150px;
 
     &__icon {
-      background-image: url('~/assets/loginIcon.svg');
       width: 100px;
       height: 100px;
-      background-size: cover;
       margin-bottom: 10%;
+      background-image: url('~/assets/loginIcon.svg');
+      background-size: cover;
     }
 
     &__title {
-      font-size: 24px;
-      color: #eee;
       margin-bottom: 40px;
-      text-align: center;
+      font-size: 24px;
       font-weight: bold;
+      color: #eee;
+      text-align: center;
     }
 
     &__link {
       width: 340px;
-      text-decoration: none;
-      color: #1e2329;
-      background-color: #fcd535;
-      border-color: #fcd535;
+      padding: 12px;
       font-size: 16px;
       font-weight: 600;
-      padding: 12px;
-      cursor: pointer;
-      border-radius: 3px;
+      color: #1e2329;
       text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      background-color: #fcd535;
+      border-color: #fcd535;
+      border-radius: 3px;
     }
   }
 }

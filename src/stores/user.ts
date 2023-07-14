@@ -1,24 +1,23 @@
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
-import { useRequest } from 'alova'
 
 import { getToken } from '@/utils/token'
 import { getUserInfo } from '@/api/user/userInfo'
 import type { IUserInfo } from '@/type/user'
 
+// TODO: define Store type interface
 export const useUserStore = defineStore('user', () => {
+  // TODO: try to get parent store, this should be properly encapsulated
   const parentUserStore = window.parent.__store__?.state?.user
 
   const email = ref(parentUserStore?.email ?? '')
   const token = ref(parentUserStore?.token ?? getToken())
-  const permissionMap = ref({} as Record<string, any>)
+  const permissionMap = ref(parentUserStore?.authMap ?? {} as Record<string, any>)
   const tagMap = ref(parentUserStore?.tags ?? {} as Record<string, any>)
   const ready = ref(!!parentUserStore?.email)
   const csrfHeader = ref(parentUserStore?.csrfHeader ?? '')
 
   async function getInfo() {
     const data : IUserInfo = await getUserInfo().send()
-    // const { data } =  useRequest(getUserInfo)
 
     email.value = data.email
     permissionMap.value = data.permissionCodes.reduce((acc, cur) => ({ ...acc, [cur.resourceCode]: cur }) , {})
@@ -43,31 +42,3 @@ export const useUserStore = defineStore('user', () => {
     getInfo,
   }
 })
-
-// export const useUserStore = defineStore('user', {
-//   state: () => ({
-//     email: '',
-//     token: '',
-//     permissionMap: {},
-//     tagMap: {},
-//     ready: false,
-//     csrfHeader: '',
-//   }),
-//   actions: {
-//     async getInfo() {
-//       return new Promise((resolve, reject) => {
-//         resolve({
-//           email: '123',
-//           token: getToken(),
-//         })
-//         // getUserInfo.send().then((data : IUserInfo) => {
-//         //   this.email = data.email
-//         //   this.tagMap = data.tagMap
-
-//         //   this.ready = true
-//         //   this.csrfHeader = data.csrfHeader
-//         // })
-//       })
-//     },
-//   },
-// })

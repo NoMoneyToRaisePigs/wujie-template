@@ -1,11 +1,16 @@
 {
-  "name": "vite-initialize",
-  "version": "0.1.0",
+  "name": "admin-ui-wujie",
+  "version": "beta-1.0.0",
+  "author": "terence-g",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "local": "vite --mode qa --config vite.local.config.ts",
-    "local:dev": "cd local && vite --mode dev",
-    "local:qa": "cd local && vite --mode qa",
-    "dev": "vite --mode qa",
+    "local:dev": "vite --mode dev --config vite.local.config.ts",
+    "local:qa": "vite --mode qa --config vite.local.config.ts",
+    "dev": "vite --mode localhost",
+    "dev:dev": "vite --mode dev",
+    "dev:qa": "vite --mode qa",
     "build": "run-p type-check build-only",
     "build:qa": "vite build --mode qa",
     "preview:qa": "vite preview --mode qa",
@@ -14,13 +19,15 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "lint:eslint": "eslint \"**/*.vue\" \"**/*.ts\"",
+    "lint:eslint:fix": "eslint \"**/*.vue\" \"**/*.ts\" --fix",
+    "lint:eslint:profile": "TIMING=1 eslint \"**/*.vue\" \"**/*.ts\"",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "lint:scss": "stylelint **/*.vue **/*.scss",
     "lint:scss:fix": "stylelint **/*.vue **/*.scss --fix",
     "prepare": "husky install"
   },
   "dependencies": {
-    "@types/js-cookie": "^3.0.3",
     "alova": "^2.5.4",
     "element-plus": "^2.3.5",
     "js-cookie": "^3.0.5",
@@ -33,6 +40,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@tsconfig/node16": "^1.0.4",
+    "@types/js-cookie": "^3.0.3",
     "@types/node": "^18.16.8",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
@@ -41,13 +49,17 @@
     "@vueuse/core": "^10.1.2",
     "eslint": "^8.39.0",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-typescript-sort-keys": "^2.3.0",
     "eslint-plugin-vue": "^9.11.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.25",
     "postcss-html": "^1.5.0",
+    "postcss-selector-parser": "^6.0.13",
     "sass": "^1.62.1",
     "stylelint": "^15.5.0",
+    "stylelint-config-recess-order": "^4.3.0",
     "stylelint-config-recommended-scss": "^11.0.0",
     "stylelint-config-recommended-vue": "^1.4.0",
     "typescript": "^5.0.4",
@@ -64,5 +76,10 @@
     "*.{css,scss,vue}": [
       "stylelint"
     ]
-  }
+  },
+  "engines": {
+    "node": ">=16.20.0",
+    "pnpm": ">=8.5.0"
+  },
+  "engineStrict": true
 }

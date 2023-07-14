@@ -40,30 +40,19 @@ function handleNav(item: IMenu) {
 }
 
 .scrollbar-demo-item {
-  display: inline-block;
   position: relative;
-  cursor: pointer;
-  border: none;
+  display: inline-block;
+  padding: 10px 8px;
+  margin-top: 8px;
+  margin-left: 4px;
+  font-size: 14px;
   font-weight: 400;
   color: #707A8A;
+  cursor: pointer;
   background: #FAFAFA;
-  padding: 10px 8px;
-  font-size: 14px;
-  margin-left: 4px;
-  margin-top: 8px;
+  border: none;
   border-radius: 4px 4px 0 0;
 
-  // flex-shrink: 0;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // width: 100px;
-  // height: 50px;
-  // margin: 10px;
-  // text-align: center;
-  // border-radius: 4px;
-  // background: var(--el-color-danger-light-9);
-  // color: var(--el-color-danger);
   &.active {
     font-weight: 500;
     color: #C99400;
@@ -72,28 +61,28 @@ function handleNav(item: IMenu) {
 
   .close {
     display: inline-block;
-    height: 14px;
     width: 14px;
+    height: 14px;
     margin-left: 8px;
-    color: #929AA5;
     font-size: 12px;
-    border-radius: 50%;
-    text-align: center;
     line-height: 14px;
+    color: #929AA5;
+    text-align: center;
+    border-radius: 50%;
 
     &:hover {
-      background-color: #b4bccc;
       color: #fff;
+      background-color: #b4bccc;
     }
   }
 }
 
 .tags-view-container {
   width: 100%;
+  height: 48px;
   background: #F5F5F5;
   border-bottom: none;
   border-left: 1px solid #EAECEF;
   border-left-width: 1px;
-  height: 48px;
 }
 </style>

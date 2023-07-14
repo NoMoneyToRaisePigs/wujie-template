@@ -9,6 +9,7 @@ import type { Props } from './yes-no-dialog.vue'
 
 
 export async function useYesNoDialog(props: Props | null = null, propscurrentInstance?: ComponentInternalInstance) {
+  // TODO: fix typing here
   const { vnode } = renderComponent(YesNoDialog, props, null, propscurrentInstance)
 
   return vnode.component?.exposed?.open()

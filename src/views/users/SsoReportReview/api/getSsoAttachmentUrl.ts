@@ -18,7 +18,4 @@ export function normalize(userInfoRaw: IS3AttachmentRaw) : IS3Attachment {
 
 export const GET_ATTACHMENT_URL = '/inspector/sso/report/get-attachment-url'
 
-
-export function getSsoAttachmentUrl(payload: Payload) {
-  return alova.Post<IS3Attachment, IS3AttachmentRaw>(GET_ATTACHMENT_URL, payload, { transformData: normalize })
-}
+export const getSsoAttachmentUrl = (payload: Payload) => alova.Post<IS3Attachment, IS3AttachmentRaw>(GET_ATTACHMENT_URL, payload, { transformData: normalize })

@@ -78,14 +78,18 @@ export default defineConfig(({ mode }) => {
     build: {
       sourcemap: 'inline',
     },
-    css: {},
+    css: {
+      postcss: {
+        plugins: [],
+      },
+    },
     server: {
       open: true,
       host: 'localhost',
       port: 5174,
       proxy: {
         '/admin-api/': {
-          target: env.VITE_APP_API_URL,
+          target: env.VITE_APP_API_BASE_URL,
           changeOrigin: true,
         },
       },

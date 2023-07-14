@@ -58,6 +58,7 @@
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
@@ -71,5 +72,27 @@ body {
 }
 
 :root {
-  --el-color-primary: yellow !important;
+  /* --el-color-primary: #fcd535 !important; */
+  /* color: #1e2329;
+  background-color: #fcd535;
+  border-color: #fcd535; */
+  /* hover opacity: 0.6; */
+  --el-font-size-base: 12px !important;
+}
+
+.el-button {
+  --el-button-font-weight: 400 !important;
+}
+
+.el-button--primary {
+  --el-button-text-color: #1e2329 !important;
+  --el-button-bg-color: #fcd535 !important;
+  --el-button-border-color: #fcd535 !important;
+  --el-button-hover-text-color: #1e2329 !important;
+  --el-button-hover-bg-color: #fcd535 !important;
+  --el-button-hover-border-color: #fcd535 !important;
+}
+
+.el-button--primary:hover {
+  opacity: 0.6;
 }

@@ -1,44 +1,9 @@
 import { defineStore } from 'pinia'
+
 import { menus as staticMenus, menuMap as staticMenuMap } from '~/router/index'
 import type { IMenu } from '~/types'
 
-
-// function getMenus(){
-//   // const { path } = useRoute()
-//   const { options } = useRouter()
-//   const menus: IMenu[] = []
-
-//   options.routes.forEach((r) => {
-
-//     // const menu : IMenu = {
-//     //   name: r.name ?? r.meta?.title ?? r.path,
-//     //   path: r.path,
-//     //   hidden: false,
-//     // }
-
-//     // menus.push(menu)
-
-//     if(r.children) {
-//       r.children.forEach((c) => {
-//         if(c.meta?.hidden) return
-
-//         const childMenu: IMenu = {
-//           name: c.name ?? c.meta?.title ?? c.path,
-//           path: c.path ? `${r.path}/${c.path}` : r.path,
-//           hidden: false,
-//         }
-//         menus.push(childMenu)
-//       })
-//     }
-//   })
-
-//   return {
-//     menus,
-//     menuMap: menus.reduce((acc, cur)=> ({ ...acc, [cur.path]: cur }), {}),
-//   }
-// }
-
-//  const { menus: staticMenus, menuMap: staticMenuMap } = getMenus()
+import type { RouteLocationNormalizedLoaded } from 'vue-router'
 
 const navigationStore = defineStore('navigation', () => {
 
@@ -50,7 +15,7 @@ const navigationStore = defineStore('navigation', () => {
   const activeMenu = ref<IMenu | null >(null)
   const menuInView = ref<Set<IMenu>>(new Set())
 
-  function addMenuInView(menu: IMenu){
+  function addMenuInView(menu: IMenu) {
     menuInView.value.add(menu)
     lastAddedMenu.value = menu
   }
@@ -69,8 +34,11 @@ const navigationStore = defineStore('navigation', () => {
 
   // const activeMenu = computed(() => menuMap.value[currentRoute.value.path])
 
-  watch(() => router.currentRoute.value.path, (path: string) => {
-    const currentMenu = menuMap.value[path]
+  watch(router.currentRoute, (currentRoute: RouteLocationNormalizedLoaded) => {
+    if(!currentRoute) return
+    const currentMenu = menuMap.value[currentRoute.path]
+
+    currentMenu.fullPath = currentRoute.fullPath
 
     activeMenu.value = currentMenu
     menuInView.value.add(currentMenu)

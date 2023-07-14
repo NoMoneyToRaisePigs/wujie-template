@@ -1,25 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import usersRouter from './modules/users'
-import defaultRoutes from './modules/default'
+
 import { getToken } from '@/utils/token'
 import { useUserStore } from '@/stores/user'
+
+import defaultRoutes from './modules/default'
+import usersRouter from './modules/users'
+import vipPortal from './modules/vip-portal'
 
 const routes = [
   ...defaultRoutes,
   ...usersRouter,
+  ...vipPortal,
 ]
 
-//TODO: change the below to hash, so that it will be the same as Admin-UI
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
 
 // TODO: Terrence - this is not needed, refacor this later
-router.beforeEach(async(to, from) => {
-
-  console.log('to', to)
+router.beforeEach(async(to, _) => {
   // TODO: Terrence - check whitelist
+
   // TODO: Terrence - set page title
 
   // determine whether the user has logged in
@@ -28,7 +30,7 @@ router.beforeEach(async(to, from) => {
   if(hasToken) {
     const userStore = useUserStore()
 
-    if(!userStore.ready){
+    if(!userStore.ready) {
       await userStore.getInfo()
     }
 
@@ -46,11 +48,10 @@ router.beforeEach(async(to, from) => {
     }
   }
 
-  // if (!hasToken && to.name !== 'login') {
-  //   return `/login?redirect=${to.fullPath}`
-  // }
-
   // TODO: Terrence - check permission
 })
+
+
+// TODO: grouping routes logic is not done yet
 
 export default router

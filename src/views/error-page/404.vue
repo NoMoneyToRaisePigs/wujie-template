@@ -17,9 +17,9 @@
 <style lang="scss" scoped>
 .page-404 {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   font-size: 24px;
   font-weight: bold;
